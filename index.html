@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	<style>
+		#container {
+			width: 100%;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;			
+			background-color: #fff;
+		}
+		
+	</style>
+	<title>React2</title>
+</head>
+<body>
+	<div id="container"></div>
+	<script type="text/babel">
+		const destination = document.querySelector('#container')
+		class Letter extends React.Component {
+			render() {
+				var letterStyle = {
+					padding: 10,
+					margin: 10,
+					backgroundColor: this.props.bgcolor,
+					color: "#333",
+					display: "inline-block",
+					fontFamily: "monospace",
+					fontSize: 62,
+					textAlign: "center",
+					boxShadow: "0 5px 5px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2)",
+				};
+
+				return(
+					<div style={letterStyle}>
+						{this.props.children}
+					</div>
+				);
+			}
+		}
+
+		ReactDOM.render(
+			<div>
+				<Letter bgcolor="#58B3FF">R</Letter>
+				<Letter bgcolor="#FF605F">E</Letter>
+				<Letter bgcolor="#FFD52E">A</Letter>
+				<Letter bgcolor="#49DD8E">C</Letter>
+				<Letter bgcolor="#AE99FF">T</Letter>
+			</div>,
+			destination
+		)
+	</script>
+</body>
+</html>
